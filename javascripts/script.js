@@ -25,12 +25,6 @@ $(document).ready(function(){
         newBarcode();
     });
 
-    $(".text-align").click(function(){
-      $(".text-align").removeClass("btn-primary");
-      $(this).addClass("btn-primary");
-
-      newBarcode();
-    });
 
     $(".generate").click(function(){
       var firstBarcode = $("#firstBarcode").val();
@@ -39,47 +33,6 @@ $(document).ready(function(){
       $("#sequenceResult").append(getBarcodeHTML(firstBarcode));
       JsBarcode("."+firstBarcode+"").init();
     });
-
-    $(".font-option").click(function(){
-      if($(this).hasClass("btn-primary")){
-        $(this).removeClass("btn-primary");
-      }
-      else{
-        $(this).addClass("btn-primary");
-      }
-
-      newBarcode();
-    });
-
-    $(".display-text").click(function(){
-      $(".display-text").removeClass("btn-primary");
-      $(this).addClass("btn-primary");
-
-      if($(this).val() == "true"){
-        $("#font-options").slideDown("fast");
-      }
-      else{
-        $("#font-options").slideUp("fast");
-      }
-
-      newBarcode();
-    });
-
-    $("#font").change(function(){
-      $(this).css({"font-family": $(this).val()});
-      newBarcode();
-    });
-
-    $('input[type="range"]').rangeslider({
-        polyfill: false,
-        rangeClass: 'rangeslider',
-        fillClass: 'rangeslider__fill',
-        handleClass: 'rangeslider__handle',
-        onSlide: newBarcode,
-        onSlideEnd: newBarcode
-    });
-
-    $('.color').colorPicker({renderCallback: newBarcode});
 
     newBarcode();
 });
