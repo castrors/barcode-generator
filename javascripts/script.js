@@ -32,6 +32,14 @@ $(document).ready(function(){
       newBarcode();
     });
 
+    $(".generate").click(function(){
+      var firstBarcode = $("#firstBarcode").val();
+      var secondBarcode = $("#secondBarcode").val();
+      console.log(getBarcodeHTML(firstBarcode));
+      $("#sequenceResult").append(getBarcodeHTML(firstBarcode));
+      JsBarcode("."+firstBarcode+"").init();
+    });
+
     $(".font-option").click(function(){
       if($(this).hasClass("btn-primary")){
         $(this).removeClass("btn-primary");
@@ -111,4 +119,8 @@ var newBarcode = function() {
     $("#bar-fontSize-display").text($("#bar-fontSize").val());
     $("#bar-margin-display").text($("#bar-margin").val());
     $("#bar-text-margin-display").text($("#bar-text-margin").val());
+};
+
+var getBarcodeHTML = function(barcode){
+  return $("<svg class='"+barcode+"' jsbarcode-value='"+barcode+"'></svg>");
 };
