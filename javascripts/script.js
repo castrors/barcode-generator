@@ -29,8 +29,12 @@ $(document).ready(function(){
     $(".generate").click(function(){
       var firstBarcode = $("#firstBarcode").val();
       var secondBarcode = $("#secondBarcode").val();
-      $("#sequenceResult").append(getBarcodeHTML(firstBarcode));
-      $("."+firstBarcode+"").JsBarcode(firstBarcode,{});
+
+      for(var index = firstBarcode; index<secondBarcode; index++){
+        $("#sequenceResult").append(getBarcodeHTML(firstBarcode));
+        $("."+firstBarcode+"").JsBarcode(firstBarcode,{});
+      }
+
     });
 
     newBarcode();
