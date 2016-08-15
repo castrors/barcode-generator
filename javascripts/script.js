@@ -31,8 +31,9 @@ $(document).ready(function(){
       var secondBarcode = $("#secondBarcode").val();
 
       for(var index = firstBarcode; index<secondBarcode; index++){
-        $("#sequenceResult").append(getBarcodeHTML(firstBarcode));
-        $("."+firstBarcode+"").JsBarcode(firstBarcode,{});
+        console.log(index);
+        $("#sequenceResult").append(getBarcodeHTML(index));
+        $("."+index+"").JsBarcode(index,{});
       }
 
     });
