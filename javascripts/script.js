@@ -75,5 +75,5 @@ var newBarcode = function() {
 };
 
 var getBarcodeHTML = function(barcode){
-  return $("<svg class='"+barcode+"' jsbarcode-value='"+barcode+"'></svg>");
+  return $("<svg class='"+barcode+"'></svg>");
 };
