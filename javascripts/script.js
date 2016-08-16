@@ -45,7 +45,7 @@ $(document).ready(function(){
 
       } else {
         for(var index = 0; index<=secondBarcode-firstBarcode; index++){
-          var barcode = prefixBarcode+(index+firstBarcode);
+          var barcode = prefixBarcode+(index+parseInt(firstBarcode));
           $("#sequenceResult").append(getBarcodeHTML(barcode));
           $("."+barcode+"").JsBarcode(barcode,{});
         }
