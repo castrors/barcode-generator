@@ -28,6 +28,7 @@ $(document).ready(function(){
 
     $(".generate").click(function(){
       $("#sequenceResult").html('');
+      var prefixBarcode = $("#prefixBarcode").val();
       var firstBarcode = $("#firstBarcode").val();
       var secondBarcode = $("#secondBarcode").val();
 
@@ -36,7 +37,7 @@ $(document).ready(function(){
         secondBarcode = parseInt(secondBarcode/10);
 
         for(var index = 0; index<=secondBarcode-firstBarcode; index++){
-          var barcode = index+firstBarcode+"";
+          var barcode = prefixBarcode+(index+firstBarcode);
           var numVerifyingDigit = generateVerifyingDigit(barcode);
           $("#sequenceResult").append(getBarcodeHTML(numVerifyingDigit));
           $("."+numVerifyingDigit+"").JsBarcode(numVerifyingDigit,{});
@@ -44,7 +45,7 @@ $(document).ready(function(){
 
       } else {
         for(var index = 0; index<=secondBarcode-firstBarcode; index++){
-          var barcode = index+firstBarcode+"";
+          var barcode = prefixBarcode+(index+firstBarcode);
           $("#sequenceResult").append(getBarcodeHTML(barcode));
           $("."+barcode+"").JsBarcode(barcode,{});
         }
