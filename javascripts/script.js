@@ -34,7 +34,7 @@ $(document).ready(function(){
         firstBarcode = firstBarcode.substr(0, firstBarcode.length-1);
         secondBarcode = secondBarcode.substr(0, secondBarcode.length-1);
         for(var index = firstBarcode; index<=secondBarcode; index++){
-          var numVerifyingDigit = generateVerifyingDigit(firstBarcode.substr(0, firstBarcode.length-1));
+          var numVerifyingDigit = generateVerifyingDigit(firstBarcode);
           $("#sequenceResult").append(getBarcodeHTML(numVerifyingDigit));
           $("."+numVerifyingDigit+"").JsBarcode(numVerifyingDigit,{});
         }
