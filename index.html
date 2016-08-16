@@ -157,34 +157,31 @@
             <div class="col-md-7 col-xs-11 slider-container"><input id="bar-text-margin" type="range" min="-15" max="40" step="1" value="0"/></div>
             <div class="col-md-1 col-xs-1 col-xs-11 value-text"><p><span id="bar-text-margin-display"></span></p></div>
           </div>
-        </div>
-      </div>
-    </div>
 
+          <h2>Gerador de Sequência</h2>
 
-        <div class="row">
-          <div class="col-md-2 col-xs-12 col-md-offset-1 description-text"><p>First barcode</p></div>
-          <input class="col-md-8 col-xs-12 " id="firstBarcode" type="text" value="10000001" placeholder="Barcode">
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-xs-12 col-md-offset-1 description-text"><p>Last barcode</p></div>
-          <input class="col-md-8 col-xs-12 " id="secondBarcode" type="text" value="10001001" placeholder="Barcode">
-        </div>
-
-        <div class="row">
-          <div class="btn-group btn-group-md" role="toolbar">
-            <button type="button" class="btn btn-default btn-primary display-text" value="true">Show</button>
-            <button type="button" class="btn btn-default display-text" value="false">Hide</button>
+          <div class="row">
+            <div class="col-md-2 col-xs-12 col-md-offset-1 description-text"><p>Primeiro código de barras</p></div>
+            <input class="col-md-8 col-xs-12 " id="firstBarcode" type="text" value="10000001" placeholder="Barcode">
           </div>
-        </div>
+          <div class="row">
+            <div class="col-md-2 col-xs-12 col-md-offset-1 description-text"><p>Último código de barras</p></div>
+            <input class="col-md-8 col-xs-12 " id="secondBarcode" type="text" value="10001001" placeholder="Barcode">
+          </div>
 
-        <div class="row">
-          <button type="button" class="btn btn-default generate">Generate</button>
-        </div>
+          <div class="row">
+              <div class="col-md-2 col-xs-12 col-md-offset-1 description-text"><p>Digito verificador</p></div>
+              <input type="checkbox" name="verifyingDigit" value="verificador" id="generateCheckbox">
+          </div>
 
-        <div class="row" id="sequenceResult">
-        </div>
+          <div class="row">
+            <div class="col-md-2 col-xs-12 col-md-offset-1 description-text">
+              <button type="button" class="btn btn-default generate">Gerar</button>
+            </div>
+          </div>
 
+          <div class="row" id="sequenceResult">
+          </div>
         </div>
       </div>
     </div>

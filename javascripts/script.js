@@ -30,11 +30,22 @@ $(document).ready(function(){
       var firstBarcode = $("#firstBarcode").val();
       var secondBarcode = $("#secondBarcode").val();
 
-      for(var index = firstBarcode; index<secondBarcode; index++){
-        console.log(index);
-        $("#sequenceResult").append(getBarcodeHTML(index));
-        $("."+index+"").JsBarcode(index,{});
+      if($('#generateCheckbox').is(":checked")){
+        firstBarcode = firstBarcode.substr(0, firstBarcode.length-1);
+        secondBarcode = secondBarcode.substr(0, secondBarcode.length-1);
+        for(var index = firstBarcode; index<=secondBarcode; index++){
+          var numVerifyingDigit = generateVerifyingDigit(firstBarcode.substr(0, firstBarcode.length-1)
+          $("#sequenceResult").append(getBarcodeHTML(numVerifyingDigit));
+          $("."+numVerifyingDigit+"").JsBarcode(numVerifyingDigit,{});
+        }
+        
+      } else {
+        for(var index = firstBarcode; index<=secondBarcode; index++){
+          $("#sequenceResult").append(getBarcodeHTML(index));
+          $("."+index+"").JsBarcode(index,{});
+        }
       }
+
 
     });
 
@@ -81,3 +92,21 @@ var newBarcode = function() {
 var getBarcodeHTML = function(barcode){
   return $("<svg class='"+barcode+"'></svg>");
 };
+
+var generateVerifyingDigit = function(numberWithoutVerifyingDigit){
+  var sum = 0;
+  var alternate = true;
+
+  for (var i = numberWithoutVerifyingDigit.length-1; i >= 0; i--) {
+      var n = parseInt(numberWithoutVerifyingDigit.substring(i, i + 1));
+      if (alternate) {
+          n *= 2;
+          if (n > 9) {
+              n = (n % 10) + 1;
+          }
+      }
+      sum += n;
+      alternate = !alternate;
+  }
+  return numberWithoutVerifyingDigit +((sum * 9) % 10);
+}
