@@ -31,10 +31,12 @@ $(document).ready(function(){
       var secondBarcode = $("#secondBarcode").val();
 
       if($('#generateCheckbox').is(":checked")){
-        firstBarcode = firstBarcode.substr(0, firstBarcode.length-1);
-        secondBarcode = secondBarcode.substr(0, secondBarcode.length-1);
+        firstBarcode = parseInt(firstBarcode/10);
+        secondBarcode = parseInt(secondBarcode/10);
+
         for(var index = firstBarcode; index<=secondBarcode; index++){
-          var numVerifyingDigit = generateVerifyingDigit(index);
+          var barcode = index+"";
+          var numVerifyingDigit = generateVerifyingDigit(barcode);
           $("#sequenceResult").append(getBarcodeHTML(numVerifyingDigit));
           $("."+numVerifyingDigit+"").JsBarcode(numVerifyingDigit,{});
         }
