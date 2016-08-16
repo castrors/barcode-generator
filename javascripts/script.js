@@ -35,17 +35,18 @@ $(document).ready(function(){
         firstBarcode = parseInt(firstBarcode/10);
         secondBarcode = parseInt(secondBarcode/10);
 
-        for(var index = firstBarcode; index<=secondBarcode; index++){
-          var barcode = index+"";
+        for(var index = 0; index<=secondBarcode-firstBarcode; index++){
+          var barcode = index+firstBarcode+"";
           var numVerifyingDigit = generateVerifyingDigit(barcode);
           $("#sequenceResult").append(getBarcodeHTML(numVerifyingDigit));
           $("."+numVerifyingDigit+"").JsBarcode(numVerifyingDigit,{});
         }
 
       } else {
-        for(var index = firstBarcode; index<=secondBarcode; index++){
-          $("#sequenceResult").append(getBarcodeHTML(index));
-          $("."+index+"").JsBarcode(index,{});
+        for(var index = 0; index<=secondBarcode-firstBarcode; index++){
+          var barcode = index+firstBarcode+"";
+          $("#sequenceResult").append(getBarcodeHTML(barcode));
+          $("."+barcode+"").JsBarcode(barcode,{});
         }
       }
 
