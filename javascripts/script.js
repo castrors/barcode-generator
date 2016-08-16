@@ -27,6 +27,7 @@ $(document).ready(function(){
 
 
     $(".generate").click(function(){
+      $("#sequenceResult").html('');
       var firstBarcode = $("#firstBarcode").val();
       var secondBarcode = $("#secondBarcode").val();
 
